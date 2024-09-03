@@ -1,11 +1,11 @@
 {
-  "name": "services-resource",
+  "name": "secure-core",
   "version": "1.0.0",
-  "description": "The service that is responsible for handling data related to workspaces, resources and clients.",
+  "description": "The service that is responsible for handling data related users.",
   "main": "dist/src/server.js",
   "type": "module",
   "scripts": {
-    "db:setup": "docker compose up --build -d ",
+    "db:setup": "docker compose up --build -d",
     "db:seed": "prisma migrate reset --force",
     "db": "run-s db:*",
     "build": "tsc",
@@ -19,15 +19,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/xyris/services-resource.git"
+    "url": "git+https://github.com/JaegerCryptic/SecureCore.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/xyris/services-resource/issues"
+    "url": "https://github.com/JaegerCryptic/SecureCore/issues"
   },
-  "homepage": "https://gitlab.com/xyris/services-resource#readme",
+  "homepage": "https://github.com/JaegerCryptic/SecureCore#readme",
   "devDependencies": {
     "@biomejs/biome": "1.6.1",
     "@types/bcrypt": "^5.0.2",
@@ -67,7 +67,6 @@
     "@fastify/rate-limit": "^9.1.0",
     "@prisma/client": "^5.11.0",
     "@serdnam/pino-cloudwatch-transport": "^1.0.4",
-    "@xyris/models": "^1.0.152",
     "axios": "^1.6.7",
     "bcrypt": "^5.1.1",
     "countries-state-list": "^1.1.0",
