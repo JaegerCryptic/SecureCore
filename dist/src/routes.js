@@ -1,0 +1,84 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const clients_1 = __importDefault(require("./endpoints/clients"));
+const datasources_1 = __importDefault(require("./endpoints/datasources"));
+const eddUsers_1 = __importDefault(require("./endpoints/eddUsers"));
+const login_1 = __importDefault(require("./endpoints/eddUsers/login"));
+const refresh_post_1 = __importDefault(require("./endpoints/eddUsers/refresh.post"));
+const resend_email_verification_post_1 = __importDefault(require("./endpoints/eddUsers/resend-email-verification.post"));
+const reset_password_code_patch_1 = __importDefault(require("./endpoints/eddUsers/reset-password-code.patch"));
+const reset_password_code_post_1 = __importDefault(require("./endpoints/eddUsers/reset-password-code.post"));
+const users_post_1 = __importDefault(require("./endpoints/eddUsers/users.post"));
+const verify_email_post_1 = __importDefault(require("./endpoints/eddUsers/verify-email.post"));
+const errors_1 = __importDefault(require("./endpoints/errors"));
+const exercises_1 = __importDefault(require("./endpoints/exercises"));
+const fwUsers_1 = __importDefault(require("./endpoints/fwUsers"));
+const forgot_password_request_post_1 = __importDefault(require("./endpoints/fwUsers/forgot-password-request.post"));
+const forgot_password_reset_post_1 = __importDefault(require("./endpoints/fwUsers/forgot-password-reset.post"));
+const login_post_1 = __importDefault(require("./endpoints/fwUsers/login.post"));
+const refresh_post_2 = __importDefault(require("./endpoints/fwUsers/refresh.post"));
+const resend_email_verification_post_2 = __importDefault(require("./endpoints/fwUsers/resend-email-verification.post"));
+const users_post_2 = __importDefault(require("./endpoints/fwUsers/users.post"));
+const verify_email_post_2 = __importDefault(require("./endpoints/fwUsers/verify-email.post"));
+const ingredient_groups_1 = __importDefault(require("./endpoints/ingredient-groups"));
+const invites_1 = __importDefault(require("./endpoints/invites"));
+const measures_1 = __importDefault(require("./endpoints/measures"));
+const nutrient_filters_1 = __importDefault(require("./endpoints/nutrient-filters"));
+const nutrients_1 = __importDefault(require("./endpoints/nutrients"));
+const organisations_1 = __importDefault(require("./endpoints/organisations"));
+const products_1 = __importDefault(require("./endpoints/products"));
+const resource_1 = __importDefault(require("./endpoints/resource"));
+const retentionFactors_1 = __importDefault(require("./endpoints/retentionFactors"));
+const search_1 = __importDefault(require("./endpoints/search"));
+const storage_instructions_1 = __importDefault(require("./endpoints/storage-instructions"));
+const tags_1 = __importDefault(require("./endpoints/tags"));
+const uploads_1 = __importDefault(require("./endpoints/uploads"));
+const webhooks_1 = __importDefault(require("./endpoints/webhooks"));
+const workspaces_1 = __importDefault(require("./endpoints/workspaces"));
+const authenticated = (fastify) => {
+    (0, nutrients_1.default)(fastify);
+    (0, clients_1.default)(fastify);
+    (0, workspaces_1.default)(fastify);
+    (0, tags_1.default)(fastify);
+    (0, datasources_1.default)(fastify);
+    (0, resource_1.default)(fastify);
+    (0, measures_1.default)(fastify);
+    (0, storage_instructions_1.default)(fastify);
+    (0, ingredient_groups_1.default)(fastify);
+    (0, nutrient_filters_1.default)(fastify);
+    (0, retentionFactors_1.default)(fastify);
+    (0, eddUsers_1.default)(fastify);
+    (0, fwUsers_1.default)(fastify);
+    (0, organisations_1.default)(fastify);
+    (0, invites_1.default)(fastify);
+    (0, products_1.default)(fastify);
+    (0, exercises_1.default)(fastify);
+    (0, uploads_1.default)(fastify);
+    (0, errors_1.default)(fastify);
+};
+const unauthenticated = (fastify) => {
+    (0, users_post_2.default)(fastify);
+    (0, users_post_1.default)(fastify);
+    (0, reset_password_code_post_1.default)(fastify);
+    (0, reset_password_code_patch_1.default)(fastify);
+    (0, forgot_password_request_post_1.default)(fastify);
+    (0, forgot_password_reset_post_1.default)(fastify);
+    (0, login_1.default)(fastify);
+    (0, login_post_1.default)(fastify);
+    (0, verify_email_post_1.default)(fastify);
+    (0, verify_email_post_2.default)(fastify);
+    (0, resend_email_verification_post_1.default)(fastify);
+    (0, resend_email_verification_post_2.default)(fastify);
+    (0, refresh_post_2.default)(fastify);
+    (0, refresh_post_1.default)(fastify);
+    (0, webhooks_1.default)(fastify);
+    // TODO: this belongs in authenticated once new admin portal is hooked up
+    (0, search_1.default)(fastify);
+};
+exports.default = {
+    authenticated,
+    unauthenticated,
+};

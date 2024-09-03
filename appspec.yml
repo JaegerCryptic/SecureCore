@@ -1,0 +1,22 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu
+hooks:
+  BeforeInstall:
+    - location: scripts/codeDeployBeforeInstall.sh
+      timeout: 180
+      runas: ubuntu
+  AfterInstall:
+    - location: scripts/codeDeployAfterInstall.sh
+      timeout: 180
+      runas: ubuntu
+  ApplicationStart:
+    - location: scripts/codeDeployStart.sh
+      timeout: 180
+      runas: ubuntu
+  ApplicationStop:
+    - location: scripts/codeDeployStop.sh
+      timeout: 180
+      runas: ubuntu
